@@ -1,28 +1,27 @@
 <mat-card>
-  <form #postForm = "ngForm" (submit)="onSavePost(postForm)">
+  <form  [formGroup]="form" (submit)="onSavePost()">
     <mat-form-field>
       <input
         type="text"
         matInput
-        name="title"
-        ngModel
-        required
         placeholder="Enter Title"
-        #title = "ngModel"
+        [formControlName] = "'title'"
       />
-      <mat-error *ngIf="title.invalid">{{"please provide a valid title"}}</mat-error>
+      <mat-error *ngIf="form.get('title').invalid">{{"please provide a valid title"}}</mat-error>
     </mat-form-field>
+    <button mat-stroked-button type="button" (click)="imagePicker.click()">Pick a image</button>
+    <input type="file" #imagePicker (change)="onImagePicked($event)">
+    <div class="imagPrev" *ngIf="imagePrev !== '' && imagePrev">
+      <img src="imagePrev" alt="">
+    </div>
     <mat-form-field>
       <textarea
         matInput
-        name="content"
-        ngModel
-        required
         rows="8"
         placeholder="Enter content"
-        #content = "ngModel"
+        [formControlName] = "'content'"
       ></textarea>
-      <mat-error *ngIf="content.invalid">{{"please provide a valid content"}}</mat-error>
+      <mat-error *ngIf="form.get('content').invalid">{{"please provide a valid content"}}</mat-error>
     </mat-form-field>
     <br />
 

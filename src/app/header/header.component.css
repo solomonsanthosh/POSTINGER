@@ -1,3 +1,24 @@
 mat-toolbar {
     margin-bottom: 2rem;
+   
 }
+
+
+mat-toolbar h1 {
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+.bar {
+    display: flex;
+   
+   margin-left: auto;
+}
+mat-toolbar span {
+    margin: 0rem 1rem;
+}
+a {
+    text-decoration: none;
+    color: #FF4081;
+    font-size:1rem;
+}
+

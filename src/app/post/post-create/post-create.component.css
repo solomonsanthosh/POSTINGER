@@ -8,3 +8,14 @@ textarea {
 button {
     margin-top: 1rem;
 }
+input[type="file"] {
+    visibility: hidden;
+}
+
+.imagPrev {
+    height: 100px;
+    margin: 1rem;
+}
+img {
+    height: 100%;
+}

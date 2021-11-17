@@ -13,6 +13,10 @@ export class PostListComponent implements OnInit , OnDestroy{
     constructor (public PostService: PostService) {
         
     }
+    onDelete(postId: any) {
+        this.PostService.deletePost(postId);
+    }
+    
 
   
 
