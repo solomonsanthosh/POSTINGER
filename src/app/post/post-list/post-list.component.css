@@ -3,3 +3,9 @@
     margin-top: 2rem;
 }
 
+.img {
+    height: 400px;
+}
+img {
+    height: 100%;
+}

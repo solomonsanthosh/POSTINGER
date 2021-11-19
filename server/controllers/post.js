@@ -2,20 +2,32 @@ const { response } = require('express');
 const db = require('../database')
 
 exports.getPost = async (req, res) => {
-    // res.send('posat');
-    await db.query('SELECT * from posts',async (err,response) =>{
+    const currentPage = +req.query.page;
+    const skip = 2 * (currentPage-1)
+
+ 
+    await db.query(`SELECT * from posts LIMIT 2 OFFSET ${skip}`,async (err,response) =>{
+        
         if(err) {
             console.log(err);
         }
         
+        // await db.query(`
+        // SELECT COUNT(*)
+        // FROM posts`,async (err,response2)=> {
+            // count = response2;
+            // console.log(count);
+        // })
+        // console.log(count);
         res.status(200).json(response);
     })
 };
 
 
 exports.addPost = async (req, res) => {
+    
     await db.query('INSERT INTO posts SET ?',
-    {title: req.body.title, content: req.body.content}, async (err,response) =>{
+    {title: req.body.title, content: req.body.content,image:req.file.path}, async (err,response) =>{
         if(err) {
             console.log(err,'err');
         }
@@ -46,7 +58,8 @@ exports.updatePost = async (req,res) => {
     
     {   id:id,
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
+        image:req.file.path
     },async (err,response)=> {
         if(err)
         {

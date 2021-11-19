@@ -12,7 +12,7 @@
     <button mat-stroked-button type="button" (click)="imagePicker.click()">Pick a image</button>
     <input type="file" #imagePicker (change)="onImagePicked($event)">
     <div class="imagPrev" *ngIf="imagePrev !== '' && imagePrev">
-      <img src="imagePrev" alt="">
+      <img [src]="imagePrev" alt="">
     </div>
     <mat-form-field>
       <textarea

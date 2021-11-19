@@ -42,7 +42,8 @@ export class PostCreateComponent {
                 console.log('====================================');
                 this.form.setValue({
                     title: this.post.title,
-                    content: this.post.content
+                    content: this.post.content,
+                    image:this.post.image
                 })
                
             }
@@ -92,7 +93,7 @@ export class PostCreateComponent {
         }
         if(this.mode == 'create')
          {
-             this.postService.addPost(this.form.value.title, this.form.value.content);
+             this.postService.addPost(this.form.value.title, this.form.value.content,this.form.value.image);
              console.log('====================================');
              console.log('create',this.mode);
              console.log('====================================');
@@ -104,7 +105,7 @@ export class PostCreateComponent {
             console.log('====================================');
             console.log('edit',this.mode);
             console.log('====================================');
-            this.postService.updatePost(this.post.id,this.form.value.title, this.form.value.content);
+            this.postService.updatePost(this.post.id,this.form.value.title, this.form.value.content,this.form.value.image);
 
         }
         this.form.reset()
