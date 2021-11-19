@@ -11,14 +11,7 @@ exports.getPost = async (req, res) => {
         if(err) {
             console.log(err);
         }
-        
-        // await db.query(`
-        // SELECT COUNT(*)
-        // FROM posts`,async (err,response2)=> {
-            // count = response2;
-            // console.log(count);
-        // })
-        // console.log(count);
+
         res.status(200).json(response);
     })
 };
