@@ -13,6 +13,7 @@ import { Post } from '../post.model';
 )
 export class PostCreateComponent {
     mode = 'create';
+    isLoading = false;
     constructor(public postService: PostService , private route: ActivatedRoute) {
         
         
@@ -35,7 +36,9 @@ export class PostCreateComponent {
             {   
                 this.postId = paramMap.get('postId')
                 this.mode = 'edit'
+                
                 this.post = this.postService.getPost(this.postId)
+                
                 this.post = this.post[0]
                 console.log('====================================');
                 console.log(this.post);
@@ -85,6 +88,7 @@ export class PostCreateComponent {
     
     
     onSavePost() {
+        this.isLoading = true;
         console.log('====================================');
         console.log('hry thre');
         console.log('====================================');
@@ -92,11 +96,12 @@ export class PostCreateComponent {
             return;
         }
         if(this.mode == 'create')
-         {
+         {  
              this.postService.addPost(this.form.value.title, this.form.value.content,this.form.value.image);
              console.log('====================================');
              console.log('create',this.mode);
              console.log('====================================');
+             
 
 
          }

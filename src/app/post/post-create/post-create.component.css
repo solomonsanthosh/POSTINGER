@@ -19,3 +19,7 @@ input[type="file"] {
 img {
     height: 100%;
 }
+mat-spinner {
+    margin: 10rem auto;
+    
+}

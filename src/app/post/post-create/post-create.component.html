@@ -1,5 +1,6 @@
-<mat-card>
-  <form  [formGroup]="form" (submit)="onSavePost()">
+<mat-spinner color="accent" *ngIf="isLoading"></mat-spinner>
+<mat-card *ngIf="!isLoading">
+  <form  [formGroup]="form" (submit)="onSavePost()" >
     <mat-form-field>
       <input
         type="text"
